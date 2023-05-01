@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	db, err := gorm.Open(mysql.Open("root:1234@tcp(127.0.0.1:3307)/ginchat?charset=utf8mb4&parseTime=True&loc=Local"), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open("root:qwe123@tcp(127.0.0.1:3306)/im?charset=utf8&parseTime=True&loc=Local"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -21,7 +21,7 @@ func main() {
 	// 迁移 schema
 	// db.AutoMigrate(&models.Community{})
 	//db.AutoMigrate(&models.UserBasic{})
-	db.AutoMigrate(&models.Message{})
+	db.AutoMigrate(&models.Community{})
 	//db.AutoMigrate(&models.GroupBasic{})
 	//db.AutoMigrate(&models.Contact{})
 

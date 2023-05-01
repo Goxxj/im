@@ -36,6 +36,11 @@ func FindUserByName(name string) UserBasic {
 	utils.DB.Where("name =?", name).First(&user)
 	return user
 }
+func FindUserById(id uint) UserBasic {
+	user := UserBasic{}
+	utils.DB.Where("id =?", id).First(&user)
+	return user
+}
 func FindUserByNameAndPwd(name string, password string) UserBasic {
 	user := UserBasic{}
 	utils.DB.Where("name =? and password=?", name, password).First(&user)
