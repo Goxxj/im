@@ -323,6 +323,10 @@ func LoadCommunity(c *gin.Context) {
 func JoinGroup(c *gin.Context) {
 	comId, _ := strconv.Atoi(c.Request.FormValue("comId"))
 	u := models.GroupPeople(uint(comId))
+	if len(u) == 0 {
+		utils.RespFail(c.Writer, "该群不存在")
+		return
+	}
 
 	userId, _ := strconv.Atoi(c.Request.FormValue("userId"))
 	for _, v := range u {

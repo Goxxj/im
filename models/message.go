@@ -125,7 +125,7 @@ func (c *Client) Read() {
 		_ = c.Socket.Close()
 	}()
 	for {
-		c.Socket.PongHandler()
+		// c.Socket.PongHandler()
 		_, p, err := c.Socket.ReadMessage()
 		if err != nil {
 			log.Println("数据格式不正确1", err)
